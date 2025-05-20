@@ -1,3 +1,5 @@
+import random
+
 def jogar():
     print("*********************************")
     print("*** Bem-vindo ao jogo da Forca! ***")
@@ -12,7 +14,9 @@ def jogar():
     
     
     arquivo.close()
-    print(palavras)
+    
+    aleatoria = random.randrange(0, len(palavras))
+    palavra_secreta = palavras[aleatoria].upper()
     
 
     
