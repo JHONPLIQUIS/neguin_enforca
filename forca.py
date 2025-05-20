@@ -3,6 +3,19 @@ def jogar():
     print("*** Bem-vindo ao jogo da Forca! ***")
     print("*********************************")
     
+    arquivo = open("neguin_enforca-main/palavras.txt","r")
+    palavras =  []
+    
+    for linha in arquivo:
+        linha = linha.strip()
+        palavras.append(linha)
+    
+    
+    arquivo.close()
+    print(palavras)
+    
+
+    
     palavra_secreta = "yamal".upper()
     letras_acertadas = ["_"] * len(palavra_secreta)
     
