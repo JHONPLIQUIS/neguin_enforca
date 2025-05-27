@@ -1,9 +1,9 @@
-frutas = ['pera','banana','mango','melancia','maçã','morango']
+jogador = ['ronaldo','cafu','messi','mbappe','saka','neymar']
 
-fruta_pedida = input('qual a fruta que deseja?')
+jogador_pedido = input('qual a fruta que deseja?')
 
-if(fruta_pedida in frutas):
-    print ('sim,temos a fruta')
+if(jogador_pedido in jogador):
+    print ('sim,temos o jogador')
     
 else:
-    print('não temos a fruta')    
+    print('não temos o jogador')    
