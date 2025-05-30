@@ -1,56 +1,35 @@
 import random
 
-def menssagem_inicial():
-print("*********************************")
-print("*** Bem-vindo ao jogo da Forca! ***")
-print("*********************************")
-
+def mensagem_inicial():
+    print("*********************************")
+    print("*** Bem-vindo ao jogo da Forca! ***")
+    print("*********************************")
 
 def criar_palavra_secreta():
+    with open("neguin_enforca-main/palavras.txt", "r") as arquivo:
+        palavras = [linha.strip().upper() for linha in arquivo]
+    return random.choice(palavras)
 
-    
-    
-
-def define_letras_acertadas (palavras):
-    palavras_acertadas = ["_"] * len(palavra_secreta)
-    
-    arquivo = open("neguin_enforca-main/palavras.txt","r")
-    palavras =  []
-    
-    for linha in arquivo:
-        linha = linha.strip()
-        palavras.append(linha)
-    
-    
-    arquivo.close()
-    
-    
-    
-    aleatoria = random.randrange(0, len(palavras))
-    palavra_secreta = palavras[aleatoria].upper()
-
+def define_letras_acertadas(palavra_secreta):
+    return ["_"] * len(palavra_secreta)
 
 def escreva_letra():
     chute = input("Qual é a letra? ")
-    chute = chute.strip().upper()
-    return chute
-    
+    return chute.strip().upper()
+
 def jogar():
+    mensagem_inicial()
     
-
-    
-
+    palavra_secreta = criar_palavra_secreta()
+    letras_acertadas = define_letras_acertadas(palavra_secreta)
     
     enforcou = False
     acertou = False
     erros = 0 
-    
+
     while not enforcou and not acertou:
-        
-        chute = escreva_letra()
-        
         print(" ".join(letras_acertadas))  # Mostra as letras acertadas até agora
-        
+        chute = escreva_letra()
         
         if chute in palavra_secreta:
             for index, letra in enumerate(palavra_secreta):
@@ -66,7 +45,7 @@ def jogar():
     if acertou:
         print("Parabéns, você ganhou!")
     else:
-        print("Você perdeu BISCATE ! A palavra era:", palavra_secreta)
+        print(f"Você perdeu! A palavra era: {palavra_secreta}")
         
     print("Fim do jogo")
 
